@@ -10,7 +10,7 @@ if img is not None:
 
     gray_roi = cv.cvtColor(roi, cv.COLOR_BGR2GRAY)
 
-    blurred_roi = cv.GaussianBlur(gray_roi, (49, 49), 0)
+    blurred_roi = cv.GaussianBlur(gray_roi, (25, 25), 0)
 
     last_roi = cv.cvtColor(blurred_roi, cv.COLOR_GRAY2BGR)
 
