@@ -7,7 +7,7 @@ if img is not None:
     x1, y1 = 800, 500
     x2, y2 = 2300, 2000
 
-    color= (255, 0, 0)  
+    color= (0, 0, 255)  
 
     cv.rectangle(img, (x1, y1), (x2, y2), color, -1)
 
