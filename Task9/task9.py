@@ -1,3 +1,5 @@
+#Griye dönüştürülmüş resim ile orijinal resim arasındaki dizi (array) farklılıklarını inceleyin.
+
 import cv2
 
 img = cv2.imread('image.png')

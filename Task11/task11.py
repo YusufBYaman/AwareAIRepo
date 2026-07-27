@@ -1,3 +1,5 @@
+#OpenCV’nin flip metodunu deneyin ve ne işe yaradığını açıklayın.
+
 import cv2 as cv
 import matplotlib.pyplot as plt
 

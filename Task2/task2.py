@@ -1,3 +1,5 @@
+#OpenCV kullanarak açtığınız bu resmi gri tonlamaya dönüştürün. (Filtre uygulansın.)
+
 import cv2 as cv
 
 img = cv.imread('image.png')

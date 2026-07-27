@@ -1,3 +1,5 @@
+#CNN mimarisi nedir araştırın. 
+
 CNN (Evrişimli Sinir Ağı) Nedir?
 CNN, özellikle görüntü ve video verilerini analiz etmek, nesneleri tanımak ve sınıflandırmak için tasarlanmış oldukça güçlü bir derin öğrenme (deep learning) algoritmasıdır. İnsan beynindeki görsel korteksin çalışma prensibinden ilham alarak geliştirilmiştir.
 

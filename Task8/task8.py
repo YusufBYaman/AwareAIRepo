@@ -1,3 +1,5 @@
+#Corner Detection ve Edge Detection işlemlerini istediğiniz bir fotoğraf üzerinde sırasıyla gerçekleştirin.
+
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt

@@ -1,3 +1,5 @@
+#OpenCV kullanarak kamera üzerinden siyah nesnelerin takibini(tespiti) yapan bir uygulama geliştirin.
+
 import cv2 as cv
 import numpy as np
 
