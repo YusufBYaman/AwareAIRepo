@@ -1,5 +1,7 @@
 #YOLOv4 modeli ile insan tespiti uygulaması yapın ve confidence (güven) değerlerini değiştirerek sonuçlar üzerindeki etkileri inceleyin.
 
+import os
+import urllib.request
 import cv2 as cv
 import numpy as np
 
@@ -8,6 +10,22 @@ def nothing(x):
 
 cfg_path = "yolov4.cfg"
 weigths_path = "yolov4.weights"
+
+# Model dosyaları indirme bağlantıları (GitHub'a .weights yüklenmediği için)
+weights_url = "https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights"
+cfg_url = "https://raw.githubusercontent.com/AlexeyAB/darknet/master/cfg/yolov4.cfg"
+
+# Config dosyası yerelde yoksa otomatik indir
+if not os.path.exists(cfg_path):
+    print("yolov4.cfg bulunamadı, indiriliyor...")
+    urllib.request.urlretrieve(cfg_url, cfg_path)
+    print("yolov4.cfg indirildi.")
+
+# Weights dosyası yerelde yoksa otomatik indir
+if not os.path.exists(weigths_path):
+    print(f"yolov4.weights dosyası bulunamadı. Otomatik olarak indiriliyor...\nIndirme Linki: {weights_url}")
+    urllib.request.urlretrieve(weights_url, weigths_path)
+    print("yolov4.weights indirmesi tamamlandı.")
 
 net = cv.dnn.readNet(weigths_path, cfg_path)
 
