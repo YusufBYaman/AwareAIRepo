@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 img = cv.imread('image.png')
-assert img is not None, "Resim yüklenemedi."
 
 img_rgb = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 gray_img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)

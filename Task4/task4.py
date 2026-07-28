@@ -11,7 +11,7 @@ if img is not None:
 
     color= (0, 0, 255)  
 
-    cv.rectangle(img, (x1, y1), (x2, y2), color, -1)
+    cv.rectangle(img, (x1, y1), (x2, y2), color, 1)
 
     cv.imshow('Image with Rectangle', img)
 

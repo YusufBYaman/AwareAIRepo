@@ -35,7 +35,7 @@ try:
 except:
     output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
-img = cv.imread('image1.jpg')
+img = cv.imread('image.jpg')
 height, width = img.shape[:2]
 
 print("Yapay zeka fotoğrafı analiz ediyor, lütfen bekleyin...")

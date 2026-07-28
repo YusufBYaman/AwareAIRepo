@@ -12,6 +12,7 @@ print("Kamera açıldı. Çıkmak için klavyeden 'q' tuşuna basın.")
 
 while True:
     ret, frame = cap.read()
+    frame = cv.flip(frame, 1)
 
     if not ret:
         print("Hata: Kameradan görüntü alınamadı!")

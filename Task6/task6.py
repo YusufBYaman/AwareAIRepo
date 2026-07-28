@@ -13,15 +13,19 @@ else:
 
     # Global Thresholding
     ret, th1 = cv.threshold(gray_img, 127, 255, cv.THRESH_BINARY)
+    #127 den yukarısını 255 e altını 0 a yuvarlar
 
     # Otsu's Thresholding
     ret2, th2 = cv.threshold(gray_img, 0, 255, cv.THRESH_BINARY + cv.THRESH_OTSU)
+    #otsu kendisi otomatik olarak bulacağı için 0 yazarız
 
     # Adaptive Thresholding (Mean)
     th3 = cv.adaptiveThreshold(gray_img, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY, 11, 2)
+    #her piksel için etrafındaki 11x11 lik alana bakarak ortalama hesaplar, 2 ise c sabitidir (ortalama - c)
 
     # Adaptive Thresholding (Gaussian)
     th4 = cv.adaptiveThreshold(gray_img, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 11, 2)
+    #her piksel için etrafındakş 11x11 lik alana bakarak ortalama hesaplar ama merkezdeki piksellere daha çok ağırlık verir
 
     titles = ['Original Image', 'Global Thresholding (v=127)', "Otsu's Thresholding", 'Adaptive Mean Thresholding', 'Adaptive Gaussian Thresholding']
     images = [gray_img, th1, th2, th3, th4]
