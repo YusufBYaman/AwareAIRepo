@@ -10,13 +10,15 @@ if img is not None:
 
     roi = img[y1:y2, x1:x2]
 
-    gray_roi = cv.cvtColor(roi, cv.COLOR_BGR2GRAY)
+    hsv_roi = cv.cvtColor(roi, cv.COLOR_BGR2HSV)
+    h, s, v = cv.split(hsv_roi)
+    blurred_v = cv.GaussianBlur(v, (25, 25), 0)
 
-    blurred_roi = cv.GaussianBlur(gray_roi, (25, 25), 0)
+    merged_hsv = cv.merge([h, s, blurred_v])
 
-    last_roi = cv.cvtColor(blurred_roi, cv.COLOR_GRAY2BGR)
+    final_roi = cv.cvtColor(merged_hsv, cv.COLOR_HSV2BGR)
 
-    img[y1:y2, x1:x2] = last_roi
+    img[y1:y2, x1:x2] = final_roi
 
     cv.imshow('Modified Image', img)
     cv.waitKey(0)
