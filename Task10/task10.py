@@ -4,19 +4,26 @@ import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Görüntüyü gri tonlamalı oku
+#* Görüntüyü gri tonlamalı oku (0 değeri tek kanallı okumasını sağlar)
 img = cv.imread('image.jpg', 0)
 
 # İkili (binary) görüntüye çevir
 _, thresh_img = cv.threshold(img, 127, 255, cv.THRESH_BINARY)
+#* eşik değeri ve siyah-beyaz görüntüyü alıyoruz
 
 # 5x5 boyutunda kernel matrisi
 kernel = np.ones((5,5), np.uint8)
 
 # Morfolojik işlemler
 erosion_result = cv.erode(thresh_img, kernel, iterations=1)
+#* kernelin içindeki piksellerin hepsi beyaz değilse merkez pikseli siyaha çevirir 
+
 dilation_result = cv.dilate(thresh_img, kernel, iterations=1)
+#* kernelin içindeki piksellerin en az bir ibile beyazsa merkez pikseli beyaz yapar
+
 opening_result = cv.morphologyEx(thresh_img, cv.MORPH_OPEN, kernel)
+#* openin önce erosion yapar sonra dilation
+
 
 # Görselleştirme
 plt.figure(figsize=(18, 12))

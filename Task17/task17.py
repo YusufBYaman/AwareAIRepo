@@ -16,8 +16,9 @@ if not os.path.exists(weights_path):
 
 net = cv.dnn.readNetFromDarknet(cfg_path, weights_path)
 
-layer_names = net.getLayerNames()
-output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers().flatten()]
+layer_names = net.getLayerNames() #! ağdaki tüm katmanları alıyoruz 
+output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers().flatten()] 
+#! sonuç döndürenleri eleyiyoruz / flatten ile pythonun okuyabileceği hale getiriyoruz
 
 cap = cv.VideoCapture(0)
 
@@ -36,9 +37,15 @@ while True:
     height, width, channels = frame.shape
 
     blob = cv.dnn.blobFromImage(frame, 1/255.0, (416, 416), swapRB=True, crop=False)
-    net.setInput(blob)
+    #* Binary Large Object
+    #* pikseller 0-255 arasında değer alır, doğru çalışması için 0-1 aralığında olması gerkir.
+    #* swapRB, bgr den rgb ye çeviri kırmızı ile mavinin yerini değiştirir.
 
-    outs = net.forward(output_layers)
+    net.setInput(blob)
+    #* hazırladığımız blobu ağa veriyoruz
+
+    outs = net.forward(output_layers) 
+    #* hesaplamaları yapar ve 3 farklı katmana göre değer bulur.
 
     boxes = []
     confidences = []
@@ -64,13 +71,16 @@ while True:
                 class_ids.append(class_id)
 
     indexes = cv.dnn.NMSBoxes(boxes, confidences, score_threshold=0.5, nms_threshold=0.4)
+    #* Güven skoru %50 altı olanları eler ve kalan iç içe geçmiş kutulara bakar eğer %40 oranında örtüşüyorsa bunların aynı yüz olduğunu anlar.
+    #* Güven skoru en yüksek olanı asıl kutu seçer ve diğerlerini siler.
 
-    if len(indexes) > 0:
-        for i in np.array(indexes).flatten():
+    if len(indexes) > 0: #! Asıl kutuların bulunduğu indeks listesini kontrol ediyoruz
+        for i in np.array(indexes).flatten(): #! hepsini okunabilir bir listeye çevirip kutu boyutunu, sınıf idsini ve güven skorunu alıyoruz
             x, y, w, h = boxes[i]
             label = str(class_ids[i])
             confidence = confidences[i]
 
+            #! Bu bilgilerle kutuları oluşturuyoruz
             cv.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
             cv.putText(frame, f"{label} {confidence:.2f}", (x, y - 10), cv.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 

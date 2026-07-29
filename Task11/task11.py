@@ -7,8 +7,11 @@ img = cv.imread('image.jpg')
 img_rgb = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 
 flip_horizontal = cv.flip(img_rgb, 1)
+#! Yatay çevirme yapar (aynalama)
 flip_vertical = cv.flip(img_rgb, 0)
+#! Dikey çevirme yapar
 flip_both = cv.flip(img_rgb, -1)
+#! hem yatay hem dikey çevirme yapar
 
 plt.figure(figsize=(15, 10))
 

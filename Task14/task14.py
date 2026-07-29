@@ -45,6 +45,7 @@ while True:
     mask = cv.inRange(hsv_frame, lower_bound, upper_bound)
 
     result = cv.bitwise_and(frame, frame, mask=mask)
+    #! görüntüyü alır, ve maskede o piksellerin karşılığı siyahsa oraları siler beyazsa olduğu gibi bırakır
 
     cv.imshow("Orijinal Kamera", frame)
     cv.imshow("Maske (Siyah-Beyaz)", mask)
