@@ -1,5 +1,3 @@
-#YOLOv4 modeli ile gerçek zamanlı kamera görüntülerinden insan tespiti yapın ve FPS değerini ekranın sağ üst köşesine yazdırın.
-
 import os
 import urllib.request
 import cv2 as cv

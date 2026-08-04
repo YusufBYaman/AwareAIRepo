@@ -1,5 +1,3 @@
-#YOLOv4 modeli ile insan tespiti uygulaması yapın ve confidence (güven) değerlerini değiştirerek sonuçlar üzerindeki etkileri inceleyin.
-
 import os
 import urllib.request
 import cv2 as cv
@@ -35,7 +33,7 @@ try:
 except:
     output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
-img = cv.imread('image.jpg')
+img = cv.imread('image1.jpg')
 height, width = img.shape[:2]
 
 print("Yapay zeka fotoğrafı analiz ediyor, lütfen bekleyin...")

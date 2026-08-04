@@ -1,5 +1,3 @@
-#Orijinal resim üzerinde 3 adet morfolojik işlem gerçekleştirin.
-
 import cv2 as cv
 import numpy as np
 import matplotlib.pyplot as plt

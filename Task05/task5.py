@@ -1,5 +1,3 @@
-#Kare içine alınan bu alanı önce griye dönüştürün, ardından bu alanı bulanıklaştırın. Bu işlemlerin gerçek hayatta nerelerde kullanıldığını araştırın.
-
 import cv2 as cv
 
 img = cv.imread('image.png')

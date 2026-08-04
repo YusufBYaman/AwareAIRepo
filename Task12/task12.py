@@ -1,5 +1,3 @@
-#OpenCV kullanarak bilgisayarınızdaki kameraya erişin ve görüntüyü bir pencere üzerinde gösterin.
-
 import cv2 as cv
 
 cap = cv.VideoCapture(0)

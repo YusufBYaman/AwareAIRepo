@@ -1,5 +1,3 @@
-#Resmin belirli bir kısmını sarı renkli bir çerçeveyle kare veya dikdörtgen içine alın. Bu alanın içini doldurun.
-
 import cv2 as cv
 
 img = cv.imread('image.png')

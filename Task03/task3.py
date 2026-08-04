@@ -1,5 +1,3 @@
-#Resmi yeniden boyutlandırın. Bu işlem sonrası, seçtiğiniz belirli bir alanı gösteren bir görüntü oluşturun.
-
 import cv2 as cv
 
 img = cv.imread('image.png')

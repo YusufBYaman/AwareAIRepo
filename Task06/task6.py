@@ -1,5 +1,3 @@
-#Thresholding nedir, hangi alanlarda kullanılır araştırın ve bir yaprak resmi üzerinde bu işlemi gerçekleştirin.
-
 import cv2 as cv 
 import matplotlib.pyplot as plt
 

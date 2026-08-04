@@ -1,5 +1,3 @@
-#HSV nedir araştırın. Ardından HSV kullanarak bir trackbar yardımıyla videodaki görüntünün HSV değerlerini değiştirin.
-
 import cv2 as cv
 import numpy as np
 

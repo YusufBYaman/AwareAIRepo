@@ -1,5 +1,3 @@
-#Video üzerinde renk tespiti yapan bir uygulama geliştirin.
-
 import cv2 as cv
 import numpy as np
 

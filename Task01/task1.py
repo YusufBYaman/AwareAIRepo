@@ -1,5 +1,3 @@
-#OpenCV kütüphanesini kullanarak herhangi bir fotoğraf (PNG/JPG) açın. Açılan fotoğrafı farklı bir isimle aynı dizine kaydedin.
-
 import cv2
 
 resim = cv2.imread("Gemini_Generated_Image.png")
