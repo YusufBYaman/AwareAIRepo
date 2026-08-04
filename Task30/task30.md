@@ -63,6 +63,6 @@ Vision Transformers (ViT), pikselleri yerel filtrelere hapsetmek yerine tüm gö
 
 **Dezavantajları:**
 * Hesaplama maliyeti oldukça yüksektir (görsel boyutu veya yama sayısı arttıkça maliyet karesel olarak artar).
-* Küçül ölçekli veri setlerinde CNN'lerin gerisinde kalır, çünkü öğrenmeyi yönlendirecek mimari bir ön yargıya (bias) sahip değildir.
+* Küçük ölçekli veri setlerinde CNN'lerin gerisinde kalır, çünkü öğrenmeyi yönlendirecek mimari bir ön yargıya (bias) sahip değildir.
 
 Özetle; veri ve işlem gücü problemleri çözüldüğünde ViT mimarisi, esnekliği ve kapasitesi sayesinde geleceğin otonom sistemlerinden tıbbi görüntülemeye kadar pek çok alanda standart araç olma potansiyelini taşımaktadır.
