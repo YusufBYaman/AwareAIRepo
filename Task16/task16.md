@@ -1,5 +1,5 @@
 CNN (Evrişimli Sinir Ağı) Nedir?
-CNN, özellikle görüntü ve video verilerini analiz etmek, nesneleri tanımak ve sınıflandırmak için tasarlanmış oldukça güçlü bir derin öğrenme (deep learning) algoritmasıdır. İnsan beynindeki görsel korteksin çalışma prensibinden ilham alarak geliştirilmiştir.
+CNN, özellikle görüntü ve video verilerini analiz etmek, nesneleri tanımak ve sınıflandırmak için tasarlanmış oldukça güçlü bir derin (deep learning) algoritmasıdır. İnsan beynindeki görsel korteksin çalışma prensibinden ilham alarak geliştirilmiştir. öğrenme
 
 Klasik yapay sinir ağları (ANN), bir görüntüyü tek boyutlu uzun bir sayı dizisine dönüştürerek okur. Bu durum pikseller arasındaki uzamsal ilişkilerin (hangi pikselin hangisinin yanında veya üstünde olduğunun) kaybolmasına yol açar. CNN ise görüntünün iki boyutlu yapısını korur. Bu sayede bir kedi fotoğrafındaki "kulak", "göz" veya "kuyruk" gibi formları bölgesel olarak çok daha başarılı bir şekilde tespit eder.
 
