@@ -1,5 +1,6 @@
 import cv2
 import torch
+import time  # FPS hesaplamak için eklendi
 
 model_path = "best.pt"
 
@@ -24,6 +25,9 @@ if not cap.isOpened():
 
 print("YOLOv5 Nesne Algılama Başlatıldı. Çıkmak için 'q' tuşuna basın.")
 
+# FPS hesabı için önceki zamanı tutacağımız değişken
+prev_time = 0
+
 while True:
     ret, frame = cap.read()
     if not ret:
@@ -31,7 +35,9 @@ while True:
         break
 
     frame = cv2.flip(frame, 1)
-
+    frame = cv2.resize(frame, (640, 640))
+    
+    # Model tahmini
     results = model(frame)
 
     # Tespit edilen nesneleri Pandas Dataframe olarak alıyoruz
@@ -53,6 +59,18 @@ while True:
             # Etiketi ve güven skorunu yazdır
             label = f"{name} {confidence:.2f}"
             cv2.putText(frame, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+
+    # ---- FPS HESAPLAMA VE YAZDIRMA ----
+    current_time = time.time()
+    fps = 1 / (current_time - prev_time)
+    prev_time = current_time
+
+    # FPS metnini oluştur (Tam sayıya yuvarlayarak)
+    fps_text = f"FPS: {int(fps)}"
+    
+    # Sağ üst köşeye yazdır (Genişlik 640 olduğu için x=500, y=40 uygun olacaktır)
+    cv2.putText(frame, fps_text, (500, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+    # -----------------------------------
 
     cv2.imshow("YOLOv5 Nesne Tespiti", frame)
 
