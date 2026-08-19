@@ -21,14 +21,18 @@ if not os.path.exists(weights_path):
     urllib.request.urlretrieve(weights_url, weights_path)
     print("yolov4.weights indirildi.")
 
-# OpenCV readNet parametre sırası: (model/weights, config)
-net = cv.dnn.readNet(weights_path, cfg_path)
+try:
+    net = cv.dnn.readNetFromDarknet(cfg_path, weights_path)
+except Exception as e:
+    try:
+        net = cv.dnn.readNet(weights_path, cfg_path)
+    except Exception as e2:
+        print(f"Hata: YOLOv4 modeli yüklenemedi. OpenCV sürümünüz Darknet desteğini kaldır mış olabilir.\nLütfen 'pip install \"opencv-python<5\"' komutunu çalıştırın.\nDetay: {e2}")
+        exit(1)
 
 layer_names = net.getLayerNames()
-try:
-    output_layers = [layer_names[i-1] for i in net.getUnconnectedOutLayers()]
-except:
-    output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
+out_layers = np.array(net.getUnconnectedOutLayers()).flatten()
+output_layers = [layer_names[i - 1] for i in out_layers]
 
 cap = cv.VideoCapture(0)
 
@@ -81,7 +85,7 @@ while True:
     indexes = cv.dnn.NMSBoxes(boxes, confidences, 0.5, 0.4)
 
     if len(indexes) > 0:
-        for i in indexes.flatten():
+        for i in np.array(indexes).flatten():
             x, y, w, h = boxes[i]
             conf = confidences[i]
 

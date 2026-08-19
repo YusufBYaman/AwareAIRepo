@@ -21,7 +21,7 @@ while True:
     #* framei bgr den hsv ye çevirir
 
     lower_black = np.array([0, 0, 0])
-    upper_black = np.array([180, 255, 60])
+    upper_black = np.array([180, 255, 100])
     #*siyah bir renk olmadığı için tüm değerler serbest bırakılmış parlaklık değeri dışında herhangi bir sınırlama bulunmuyor, onu da 60 a sabitledik 
 
     mask = cv.inRange(hsv_frame, lower_black, upper_black)

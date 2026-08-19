@@ -68,7 +68,7 @@ while True:
     fps_text = f"FPS: {int(fps)}"
     # Çözünürlük kameranın orijinal çözünürlüğünde kaldığı için dinamik FPS konumu belirleyelim
     h, w, _ = frame.shape
-    cv2.putText(frame, fps_text, (w - 150, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+    # cv2.putText(frame, fps_text, (w - 150, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
     cv2.imshow("YOLOv5 TensorRT Canli Tespit", frame)
 
